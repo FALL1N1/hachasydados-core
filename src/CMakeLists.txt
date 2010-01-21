@@ -1,0 +1,5 @@
+add_subdirectory(framework)
+add_subdirectory(game)
+add_subdirectory(shared)
+add_subdirectory(trinitycore)
+add_subdirectory(trinityrealm)
