@@ -1,0 +1,7 @@
+add_subdirectory(game)
+if (DO_SCRIPTS)
+   add_subdirectory(scripts)
+endif (DO_SCRIPTS)
+add_subdirectory(shared)
+add_subdirectory(worldserver)
+add_subdirectory(authserver)
