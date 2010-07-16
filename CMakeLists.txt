@@ -38,7 +38,7 @@ option(DO_SQL "Copy SQL files" 0)
 option(DO_PCH "Use precompiled headers" 1)
 
 set(GENREV_SRC
-src/tools/genrevision/genrevision.cpp
+src/genrevision/genrevision.cpp
 )
 
 if(DO_DEBUG)
@@ -58,7 +58,7 @@ else (DO_DEBUG)
     add_custom_target("revision.h" ALL
         COMMAND "${CMAKE_BINARY_DIR}/genrev"
         ${CMAKE_SOURCE_DIR}
-        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/src/shared"
+        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/src/server/shared"
         DEPENDS genrev
     )
 endif(DO_DEBUG)

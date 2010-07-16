@@ -4,20 +4,20 @@ IF(DO_PCH AND CMAKE_COMPILER_IS_GNUCXX)
 ENDIF(DO_PCH AND CMAKE_COMPILER_IS_GNUCXX)
 
 SET(scripts_STAT_SRCS
-   ../game/ScriptedPch.cpp
-   ../game/ScriptedPch.h
-   ../game/ScriptedEscortAI.cpp
-   ../game/ScriptedEscortAI.h
-   ../game/ScriptedCreature.cpp
-   ../game/ScriptedCreature.h
-   ../game/ScriptedFollowerAI.cpp
-   ../game/ScriptedFollowerAI.h
-   ../game/ScriptedGossip.h
-   ../game/ScriptedGuardAI.cpp
-   ../game/ScriptedGuardAI.h
-   ../game/ScriptedInstance.h
-   ../game/ScriptedSimpleAI.cpp
-   ../game/ScriptedSimpleAI.h
+   ../game/ScriptMgr/ScriptedPch.cpp
+   ../game/ScriptMgr/ScriptedPch.h
+   ../game/AI/ScriptedAI/ScriptedEscortAI.cpp
+   ../game/AI/ScriptedAI/ScriptedEscortAI.h
+   ../game/AI/ScriptedAI/ScriptedCreature.cpp
+   ../game/AI/ScriptedAI/ScriptedCreature.h
+   ../game/AI/ScriptedAI/ScriptedFollowerAI.cpp
+   ../game/AI/ScriptedAI/ScriptedFollowerAI.h
+   ../game/AI/ScriptedAI/ScriptedGossip.h
+   ../game/AI/ScriptedAI/ScriptedGuardAI.cpp
+   ../game/AI/ScriptedAI/ScriptedGuardAI.h
+   ../game/AI/ScriptedAI/ScriptedInstance.h
+   ../game/AI/ScriptedAI/ScriptedSimpleAI.cpp
+   ../game/AI/ScriptedAI/ScriptedSimpleAI.h
    custom/on_events.cpp
    eastern_kingdoms/alterac_valley/alterac_valley.cpp
    eastern_kingdoms/alterac_valley/boss_balinda.cpp
@@ -582,11 +582,54 @@ message("-- Added Script Engine to SCRIPTS lib")
 include_directories(
   ${ACE_INCLUDE_DIR}
   ${CMAKE_BINARY_DIR}
-  ${CMAKE_SOURCE_DIR}/src/shared
-  ${CMAKE_SOURCE_DIR}/src/framework
-  ${CMAKE_SOURCE_DIR}/src/game
-  ${CMAKE_SOURCE_DIR}/src/shared/Database
   ${CMAKE_SOURCE_DIR}/dep/include
+  ${CMAKE_SOURCE_DIR}/src/server/shared
+  ${CMAKE_SOURCE_DIR}/src/server/framework
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Database
+  ${CMAKE_SOURCE_DIR}/src/server/game/Account
+  ${CMAKE_SOURCE_DIR}/src/server/game/Achievements
+  ${CMAKE_SOURCE_DIR}/src/server/game/Addons
+  ${CMAKE_SOURCE_DIR}/src/server/game/AI
+  ${CMAKE_SOURCE_DIR}/src/server/game/AI/ScriptedAI
+  ${CMAKE_SOURCE_DIR}/src/server/game/AuctionHouse
+  ${CMAKE_SOURCE_DIR}/src/server/game/BattleGrounds
+  ${CMAKE_SOURCE_DIR}/src/server/game/Calendar
+  ${CMAKE_SOURCE_DIR}/src/server/game/Chat
+  ${CMAKE_SOURCE_DIR}/src/server/game/ConditionMgr
+  ${CMAKE_SOURCE_DIR}/src/server/game/Combat
+  ${CMAKE_SOURCE_DIR}/src/server/game/DataStores
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Creature
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Item
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/GameObject
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Object
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Pet
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Player
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Unit
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Vehicle
+  ${CMAKE_SOURCE_DIR}/src/server/game/Events
+  ${CMAKE_SOURCE_DIR}/src/server/game/Globals
+  ${CMAKE_SOURCE_DIR}/src/server/game/Groups
+  ${CMAKE_SOURCE_DIR}/src/server/game/Guilds
+  ${CMAKE_SOURCE_DIR}/src/server/game/Instances
+  ${CMAKE_SOURCE_DIR}/src/server/game/LookingForGroup
+  ${CMAKE_SOURCE_DIR}/src/server/game/Loot
+  ${CMAKE_SOURCE_DIR}/src/server/game/Mails
+  ${CMAKE_SOURCE_DIR}/src/server/game/Map
+  ${CMAKE_SOURCE_DIR}/src/server/game/Map/Cell
+  ${CMAKE_SOURCE_DIR}/src/server/game/Map/Grid
+  ${CMAKE_SOURCE_DIR}/src/server/game/Movement
+  ${CMAKE_SOURCE_DIR}/src/server/game/Opcodes
+  ${CMAKE_SOURCE_DIR}/src/server/game/OutdoorPvP
+  ${CMAKE_SOURCE_DIR}/src/server/game/Pools
+  ${CMAKE_SOURCE_DIR}/src/server/game/Quests
+  ${CMAKE_SOURCE_DIR}/src/server/game/Reputation
+  ${CMAKE_SOURCE_DIR}/src/server/game/ScriptMgr
+  ${CMAKE_SOURCE_DIR}/src/server/game/Skills
+  ${CMAKE_SOURCE_DIR}/src/server/game/Spells
+  ${CMAKE_SOURCE_DIR}/src/server/game/Spells/Auras
+  ${CMAKE_SOURCE_DIR}/src/server/game/Tools
+  ${CMAKE_SOURCE_DIR}/src/server/game/Weather
+  ${CMAKE_SOURCE_DIR}/src/server/game/World
   ${MYSQL_INCLUDE_DIR}
 )
 
@@ -594,5 +637,5 @@ add_library(scripts STATIC ${scripts_STAT_SRCS})
 
 # Generate precompiled header
 IF(DO_PCH AND CMAKE_COMPILER_IS_GNUCXX)
-	ADD_PRECOMPILED_HEADER(scripts ${CMAKE_SOURCE_DIR}/src/game/ScriptedPch.h)
+	ADD_PRECOMPILED_HEADER(scripts ${CMAKE_SOURCE_DIR}/src/server/game/ScriptMgr/ScriptedPch.h)
 ENDIF(DO_PCH AND CMAKE_COMPILER_IS_GNUCXX)
