@@ -322,6 +322,11 @@ public:
                             m_uiEvent = 300;
                             SetData(TYPE_NORTHREND_BEASTS,IN_PROGRESS);
                             SetData(TYPE_BEASTS,IN_PROGRESS);
+                            //despawn our systers.
+                            if (Creature* pAcid = instance->GetCreature(m_uiAcidmawGUID))
+                                pAcid->ForcedDespawn();
+                            if (Creature* pDscale = instance->GetCreature(m_uiDreadscaleGUID))
+                                pDscale->ForcedDespawn();
                             break;
                         case ICEHOWL_DONE:
                             m_uiEvent = 400;

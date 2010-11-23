@@ -409,7 +409,8 @@ struct boss_jormungarAI : public ScriptedAI
                     m_pInstance->SetData(TYPE_NORTHREND_BEASTS, SNAKES_DONE);
                 else
                     m_pInstance->SetData(TYPE_NORTHREND_BEASTS, SNAKES_SPECIAL);
-            }
+            }else
+                m_pInstance->SetData(TYPE_NORTHREND_BEASTS, SNAKES_DONE); //this mean that sister was despawned (by DESPAWN_TIME setted when she was summoned)
         }
     }
 
