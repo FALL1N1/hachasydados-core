@@ -152,6 +152,7 @@ public:
         {
             if (m_pInstance)
                 m_pInstance->SetData(TYPE_NORTHREND_BEASTS,GORMOK_DONE);
+            Summons.DespawnAll();
         }
 
         void JustReachedHome()
