@@ -593,8 +593,8 @@ class npc_tirion_toc : public CreatureScript
                         case 210:
                             if (m_pInstance->GetData(TYPE_BEASTS) != DONE)
                             {
-                                me->SummonCreature(NPC_DREADSCALE, ToCCommonLoc[3].GetPositionX(), ToCCommonLoc[3].GetPositionY(), ToCCommonLoc[3].GetPositionZ(), 5, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 30*IN_MILLISECONDS);
-                                me->SummonCreature(NPC_ACIDMAW, ToCCommonLoc[4].GetPositionX(), ToCCommonLoc[4].GetPositionY(), ToCCommonLoc[4].GetPositionZ(), 5, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 30*IN_MILLISECONDS);
+                                me->SummonCreature(NPC_DREADSCALE, ToCCommonLoc[3].GetPositionX(), ToCCommonLoc[3].GetPositionY(), ToCCommonLoc[3].GetPositionZ(), 5, TEMPSUMMON_CORPSE_TIMED_DESPAWN, DESPAWN_TIME);
+                                me->SummonCreature(NPC_ACIDMAW, ToCCommonLoc[4].GetPositionX(), ToCCommonLoc[4].GetPositionY(), ToCCommonLoc[4].GetPositionZ(), 5, TEMPSUMMON_CORPSE_TIMED_DESPAWN, DESPAWN_TIME);
                                 if (Creature* pTemp = Unit::GetCreature((*me),m_pInstance->GetData64(NPC_DREADSCALE)))
                                 {
                                     pTemp->GetMotionMaster()->MovePoint(0, ToCCommonLoc[8].GetPositionX(), ToCCommonLoc[8].GetPositionY(), ToCCommonLoc[8].GetPositionZ());
