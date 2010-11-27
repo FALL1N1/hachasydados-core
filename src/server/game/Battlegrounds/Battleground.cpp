@@ -730,8 +730,8 @@ void Battleground::EndBattleground(uint32 winner)
             loser_matchmaker_rating = GetArenaMatchmakerRating(GetOtherTeam(winner));
             winner_team_rating = winner_arena_team->GetRating();
             winner_matchmaker_rating = GetArenaMatchmakerRating(winner);
-            winner_change = winner_arena_team->WonAgainst(loser_matchmaker_rating);
-            loser_change = loser_arena_team->LostAgainst(winner_matchmaker_rating);
+            winner_change = winner_arena_team->WonAgainst(loser_team_rating); // loser_matchmaker_rating replaced by LihO
+            loser_change = loser_arena_team->LostAgainst(winner_team_rating); // winner_matchmaker_rating replaced by LihO
             sLog.outDebug("--- Winner rating: %u, Loser rating: %u, Winner MMR: %u, Loser MMR: %u, Winner change: %u, Losser change: %u ---", winner_team_rating, loser_team_rating,
                 winner_matchmaker_rating, loser_matchmaker_rating, winner_change, loser_change);
             SetArenaTeamRatingChangeForTeam(winner, winner_change);
